@@ -85,8 +85,7 @@
       var vinnerLoddInn = varVinnere[varVinnere.length - 1].childNodes[0].nodeValue;
       console.log("Node value: " + vinnerLoddInn);
 
-      var punkt = document.createElement('li');
-      punkt.setAttribute('class', 'vinnere');
+      var punkt = document.createElement('li');      
       punkt.appendChild(document.createTextNode("Vinner nr " + (varVinnere.length) + " ble lodd nr: " + vinnerLoddInn));
 
       if (varTrukket == 1) {
@@ -94,7 +93,7 @@
         res.removeAttribute('hidden');
         var vinnereTxt = document.createElement('div');
         vinnerListe = document.createElement('ul');
-
+        vinnerListe.setAttribute('class', 'vinnere');
         vinnereTxt.appendChild(vinnerListe);
         res.appendChild(vinnereTxt);
       }
