@@ -1,5 +1,5 @@
   .valgt {
-    background-image: url(ball.png);
+    background-image: url(fotball_30x30.png);
     background-repeat: no-repeat;
     background-position: center center;
     color: green;
@@ -13,7 +13,7 @@
     width: 76px;
   }
   ul.vinnere {
-    list-style-image: url('ball_liten.png');
+    list-style-image: url('fotball_12x12.png');
   }
 
 

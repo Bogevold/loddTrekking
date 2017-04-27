@@ -215,14 +215,6 @@ function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
 function fStil(x) {
   console.log(x.value);
   var stil = x.value;
-  switch (stil){
-    case "fotball":
-      CCSStylesheetRuleStyle('loddTrekking', ".valgt", "background-image", "url(ball.png)");
-      CCSStylesheetRuleStyle('loddTrekking', "ul.vinnere", "list-style-image", "url(ball_liten.png)");
-      break;
-    case "musikk":
-      CCSStylesheetRuleStyle('loddTrekking', ".valgt", "background-image", "url(musikk_30x30.jpg)");
-      CCSStylesheetRuleStyle('loddTrekking', "ul.vinnere", "list-style-image", "url(musikk_12x12.jpg)");
-      break;
-  }
+  CCSStylesheetRuleStyle('loddTrekking', ".valgt", "background-image", "url("+stil+"_30x30.png)");
+  CCSStylesheetRuleStyle('loddTrekking', "ul.vinnere", "list-style-image", "url("+stil+"_12x12.png)");
 }
