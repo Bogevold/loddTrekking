@@ -9,7 +9,7 @@
   var vRad = 7;
   var vCol = 5;
   
-  var vinnerListe
+  var vinnerListe;
 
   function creTable() {
     document.getElementById('Resultat').setAttribute('hidden', '');
@@ -56,7 +56,7 @@
   }  
   
   function nullAlleCeller() {
-    var celler = document.getElementsByTagName('td');
+    var celler = document.getElementsByClassName('lodd');
     for (var i=0; i < celler.length; i++) {
         //celler[i].setAttribute('class', 'normal');
         celler[i].classList.add('normal');
@@ -66,10 +66,10 @@
 
   function nullCeller() {
     for (var i=0; i < varLoddene.length; i++) {
-        varLoddene[i].setAttribute('class', 'normal');
+        //varLoddene[i].setAttribute('class', 'normal');
         //console.log(celler[i].getAttribute('id'));
-        celler[i].classList.add('normal');
-        celler[i].classList.remove('valgt');
+        varLoddene[i].classList.add('normal');
+        varLoddene[i].classList.remove('valgt');
     }
   }  
   
