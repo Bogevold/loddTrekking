@@ -37,10 +37,30 @@
     document.getElementById('inVinnere').setAttribute('max', antLodd);
   }
   
+  function creDivLodd() {
+    document.getElementById('Resultat').setAttribute('hidden', '');
+    var hentLodd = document.getElementById('antallLodd');
+    antLodd = hentLodd.value;
+    loddNr = 1;
+    var tblCont = document.getElementById('tblCont');
+    tblCont.style.maxWidth=maxBreddeLodd+"px";
+    tblCont.innerHTML = "";
+    for (var i = 0; i < antLodd; i++) {
+      var td = document.createElement('div');
+      td.appendChild(document.createTextNode(loddNr));
+      td.setAttribute('id', "loddNr"+loddNr++);
+      td.classList.add('lodd');
+      tblCont.appendChild(td);            
+    }
+    document.getElementById('inVinnere').setAttribute('max', antLodd);
+  }  
+  
   function nullAlleCeller() {
     var celler = document.getElementsByTagName('td');
     for (var i=0; i < celler.length; i++) {
-        celler[i].setAttribute('class', 'normal');
+        //celler[i].setAttribute('class', 'normal');
+        celler[i].classList.add('normal');
+        celler[i].classList.remove('valgt');
     }
   }
 
@@ -48,13 +68,15 @@
     for (var i=0; i < varLoddene.length; i++) {
         varLoddene[i].setAttribute('class', 'normal');
         //console.log(celler[i].getAttribute('id'));
+        celler[i].classList.add('normal');
+        celler[i].classList.remove('valgt');
     }
   }  
   
 
   function trekk() {
     document.getElementById('Resultat').setAttribute('hidden', '');
-    varLoddene = Array.prototype.slice.call(document.getElementsByTagName('td'));
+    varLoddene = Array.prototype.slice.call(document.getElementsByClassName('lodd'));
     starTid = Date.now();
     varVinnere = [];
     varTrukket = 0;
@@ -68,7 +90,9 @@
   function velgLodd() {
     nullCeller();
     var nr = Math.floor(Math.random() * varLoddene.length);
-    varLoddene[nr].setAttribute('class', 'valgt');
+    //varLoddene[nr].setAttribute('class', 'valgt');
+    varLoddene[nr].classList.add('valgt');
+    varLoddene[nr].classList.remove('normal')
     var varTid = Date.now() - starTid;
     var varIntervall = document.getElementById('inTid').value * 1000/antVinnere;
     console.log("Tid: " + varTid);
@@ -129,8 +153,19 @@
     document.getElementById('antallLodd').value = antLoddB;
     creTable();
   }
+
+  function fnyBeregn() {
+    //vRad = document.getElementById('antallRader').value;
+    //vCol = document.getElementById('antallKol').value;
+    //var antLoddB = vRad * vCol;
+    var antLoddB = document.getElementById('antallLodd').value;
+    var sq = Math.round(Math.sqrt(antLoddB));
+    maxBreddeLodd = 60*sq;
+    creDivLodd();
+  }
   
   var starTid;
+  var maxBreddeLodd = 300;
   
   $(document).on('click', '.panel-heading span.clickable', function(e) {
     var $this = $(this);
