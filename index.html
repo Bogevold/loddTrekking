@@ -47,11 +47,11 @@
             <span class="input-group-addon" id="basic-addon1">Antall lodd</span>
           </div>
           <div class="input-group">    
-            <input type="number" class="form-control" id="inTid" min="1" max="360" step="1" value="10" aria-describedby="basic-addon2">
+            <input type="number" class="form-control" id="inTid" min="1" max="360" step="1" value="10" onChange="fValider()" aria-describedby="basic-addon2">
             <span class="input-group-addon" id="basic-addon2">Sekunder trekking foregår</span>
           </div>
           <div class="input-group">        
-            <input type="number" class="form-control" id="inVinnere" min="1" step="1" value="1" aria-describedby="basic-addon3">
+            <input type="number" class="form-control" id="inVinnere" min="1" step="1" value="1" max="35"  onChange="fValider()" aria-describedby="basic-addon3">
             <span class="input-group-addon" id="basic-addon3">Ant vinnere</span>
           </div>
         </div>
@@ -60,7 +60,7 @@
   </div>
   
   <div id="divTrekking" style="margin:auto; padding:50px;clear:left;">
-    <button class='btn b76'  onClick="trekk()">Trekk</button>
+    <button class='btn b76' id="bTrekk" onClick="trekk()">Trekk</button>
     <p/>
     <div id="tblCont" ></div>
     <div id="Resultat" hidden style="margin:auto; clear:both; padding: 50px;"><h1>Vinnerne er trukket</h1></div>

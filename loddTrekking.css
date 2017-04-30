@@ -38,3 +38,7 @@
     float:left;
     text-align:center;
   }
+
+  input:invalid {
+    border: 2px solid red;
+}

@@ -218,3 +218,14 @@ function fStil(x) {
   CCSStylesheetRuleStyle('loddTrekking', ".valgt", "background-image", "url("+stil+"_30x30.png)");
   CCSStylesheetRuleStyle('loddTrekking', "ul.vinnere", "list-style-image", "url("+stil+"_12x12.png)");
 }
+
+function fValider() {
+  console.log("fValider");
+  if (document.getElementById("antallLodd").validity.valid &&
+    document.getElementById("inTid").validity.valid &&
+    document.getElementById("inVinnere").validity.valid ) {
+    document.getElementById("bTrekk").disabled = false;
+  }   else {
+    document.getElementById("bTrekk").disabled = true;
+  }
+}
